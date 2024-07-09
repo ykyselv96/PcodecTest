@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <form id="updateForm" method="GET">
+        <input type="hidden" name="_method" value="DELETE">
+        <label for="id">Enter book_id</label>
+        <input type="text" id="id" name="id" required><br>
+        <button type="submit">Update Book</button>
+    </form>
+
+    <script>
+        document.getElementById('updateForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var bookId = document.getElementById('id').value;
+
+            fetch('/books/update_form/' + bookId, {
+                method: 'get',
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/books/update_form/' + bookId;
+                } else {
+                    alert('Failed to update book.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred.');
+            });
+        });
+    </script>
+</body>
+</html>

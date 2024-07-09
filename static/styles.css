@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    padding: 0;
+    background-color: beige;
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 800px;
+    padding: 5px;
+}
+
+button {
+    padding: 40px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+li {
+    margin-bottom: 1px;
+}

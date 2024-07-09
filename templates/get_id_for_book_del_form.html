@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <form id="deleteForm" method="GET">
+        <input type="hidden" name="_method" value="DELETE">
+        <label for="id">Enter book_id</label>
+        <input type="text" id="id" name="id" required><br>
+        <button type="submit">Delete Book</button>
+    </form>
+
+    <script>
+        document.getElementById('deleteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var bookId = document.getElementById('id').value;
+
+            fetch('/books/' + bookId, {
+                method: 'DELETE',
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/books/' + bookId;
+                } else {
+                    alert('Failed to delete book.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred.');
+            });
+        });
+    </script>
+</body>
+</html>

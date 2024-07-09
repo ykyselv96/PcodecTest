@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Book</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <form id="findForm">
+        <label for="id">Enter book_id</label>
+        <input type="text" id="id" name="id" required><br>
+        <button type="submit">Find Book</button>
+    </form>
+
+    <script>
+        document.getElementById('findForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var bookId = document.getElementById('id').value;
+
+            fetch('/books/' + bookId, {
+                method: 'GET',
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/books/' + bookId;
+                } else {
+                    alert('Book not found.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred.');
+            });
+        });
+    </script>
+</body>
+</html>

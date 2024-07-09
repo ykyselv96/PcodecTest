@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>All Books</h1>
+     {% if books %}
+        <ol>
+            {% for book in books %}
+                <li>
+                    <ul>
+                        <li>Book name: {{book.title}}</li>
+                        <li>Author: {{book.author}}</li>
+                        <li>Published date: {{book.published_date}}</li>
+                        <li>ISBN: {{book.isbn}}</li>
+                        <li>Pages: {{book.pages}}</li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <p>No books found.</p>
+    {% endif %}
+
+</body>
+</html>
